@@ -1,5 +1,6 @@
 from openpyxl import load_workbook
 from openpyxl.styles import PatternFill
+from openpyxl.utils.exceptions import InvalidFileException
 
 def edit_column_data_from_excel(xlsx_path: str, data: list, row: int = 1, column: str = 'A', hyperlink:bool = False) -> bool:
     """
@@ -10,7 +11,8 @@ def edit_column_data_from_excel(xlsx_path: str, data: list, row: int = 1, column
     :param row: Starting row for filling (1-indexed).
     :param column: Column to fill.
     :param hyperlink: Whether to add hyperlinks to the cells.
-    :return: True if the operation was successful, False otherwise.
+    :raises ValueError: If the specified row or column does not exist.
+    :raises InvalidFileException: If the provided path does not lead to a valid .xlsx file.
     """
     try:
         load_wb = load_workbook(xlsx_path)
@@ -36,9 +38,10 @@ def edit_column_data_from_excel(xlsx_path: str, data: list, row: int = 1, column
                 if hyperlink:
                     cell.hyperlink = item
         
-        
         load_wb.save(xlsx_path)
-        return True
-        
-    except Exception as e:
-        return False
+    
+    except ValueError:
+        raise ValueError("The specified row or column does not exist.")
+
+    except InvalidFileException:
+        raise InvalidFileException("The path does not lead to a valid .xlsx file.")

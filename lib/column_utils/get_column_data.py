@@ -21,6 +21,9 @@ def get_column_data_from_excel(xlsx_path:str, row:int =1, column:str ='A', index
         
         column = column.upper()
         row = row - 1
+
+        if not(1 >= row <= 1048576):
+            raise ValueError
         
         cell_ID = [cell for cell in sheet[column][row:]]
         
