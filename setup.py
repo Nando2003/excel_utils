@@ -21,7 +21,6 @@ setup(
     extra_require={
         "dev" : ["pytest>=7.0"]
     },
-    test_suite='tests',
     tests_require=[
         'pytest>=7.0',
     ],
