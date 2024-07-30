@@ -2,7 +2,7 @@ from openpyxl import load_workbook
 from openpyxl.styles import PatternFill
 from openpyxl.utils.exceptions import InvalidFileException
 
-def edit_column_data_from_excel(xlsx_path: str, data: list, row: int = 1, column: str = 'A', hyperlink:bool = False) -> bool:
+def edit_column_data_from_excel(xlsx_path: str, data: list, row: int = 1, column: str = 'A', hyperlink:bool = False) -> None:
     """
     Fills a column in an Excel file with provided data.
     
