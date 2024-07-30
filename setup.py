@@ -7,7 +7,7 @@ def parse_requirements(filename:str) -> list:
 
 setup(
     name='excel_utils',
-    version='0.1',
+    version='0.2',
     packages=find_packages(where='lib'),
     package_dir={'' : 'lib'},
     include_package_data=True,
