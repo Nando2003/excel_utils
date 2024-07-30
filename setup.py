@@ -7,7 +7,7 @@ def parse_requirements(filename:str) -> list:
 
 setup(
     name='excel_utils',
-    version='0.3',
+    version='0.3.1',
     packages=find_packages(where='lib'),
     package_dir={'' : 'lib'},
     include_package_data=True,
@@ -21,6 +21,10 @@ setup(
     extra_require={
         "dev" : ["pytest>=7.0"]
     },
+    test_suite='tests',
+    tests_require=[
+        'pytest>=7.0',
+    ],
     author='Fernando Fontes',
     author_email='nandofontes30@gmail.com',
 )
