@@ -1,7 +1,9 @@
 from openpyxl import load_workbook
 from openpyxl.utils.exceptions import InvalidFileException
 
-def get_column_data_from_excel(xlsx_path:str, row:int =1, column:str ='A', index:bool =False) -> list:
+from typing import Union, List, Tuple
+
+def get_column_data_from_excel(xlsx_path:str, row:int =1, column:str ='A', index:bool =False) -> Union[List, List[Tuple]]:
     """
     Extracts data from a specific column in an Excel file and stores it in a list.
 
