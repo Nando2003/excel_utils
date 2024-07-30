@@ -16,7 +16,11 @@ setup(
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/Nando2003/db2excel.git',
+    python_requires='>=3.10',
     install_requires=parse_requirements('requirements.txt'),
+    extra_require={
+        "dev" : ["pytest>=7.0"]
+    },
     author='Fernando Fontes',
     author_email='nandofontes30@gmail.com',
 )
